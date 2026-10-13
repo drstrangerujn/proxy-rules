@@ -1,0 +1,37 @@
+# Apple Intelligence / Siri 走代理规则
+# 更新 2026-09-11：补全 PCC 与 Private Relay 端点
+# 用法：RULE-SET,appleai.list,"🚀 手动选择"  ← 该组必须选美国节点
+
+# ── Siri 与 Apple Intelligence 核心（必需）──
+DOMAIN,guzzoni.apple.com
+DOMAIN-SUFFIX,guzzoni.apple.com
+DOMAIN-SUFFIX,guzzoni.smoot.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN-KEYWORD,siri
+
+# ── Private Relay / mask 端点（必需，PCC 走这些）──
+DOMAIN,mask.apple-dns.net
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN-SUFFIX,mask.icloud.com
+DOMAIN-SUFFIX,mask-h2.icloud.com
+DOMAIN,apple-relay.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
+DOMAIN-SUFFIX,cp4.cloudflare.com
+
+# ── iCloud 网关（建议保留）──
+DOMAIN-SUFFIX,gateway.icloud.com
+
+# ── 以下两条按需，不确定就先注释掉 ──
+# ls.apple.com 是定位服务，走代理后定位可能变慢或不准
+DOMAIN,gspe1-ssl.ls.apple.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
+# DOMAIN-SUFFIX,ls.apple.com
+# apps.mzstatic.com 是 App Store 图片资源，走代理会让商店加载变慢
+# DOMAIN-SUFFIX,apps.mzstatic.com

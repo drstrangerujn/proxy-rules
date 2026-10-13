@@ -1,0 +1,38 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    paths: ["sources/**", "build.py", ".github/workflows/build.yml"]
+  schedule:
+    - cron: "17 20 * * *"   # 每天北京时间 04:17 跟一次上游
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python3 build.py
+      - name: 编译 sing-box .srs 和 mihomo .mrs
+        run: |
+          SB=1.12.9; MH=v1.19.31
+          curl -sL "https://github.com/SagerNet/sing-box/releases/download/v${SB}/sing-box-${SB}-linux-amd64.tar.gz" | tar xz
+          curl -sL "https://github.com/MetaCubeX/mihomo/releases/download/${MH}/mihomo-linux-amd64-${MH}.gz" | gunzip > mihomo && chmod +x mihomo
+          for j in rules/*.json; do ./sing-box-${SB}-linux-amd64/sing-box rule-set compile "$j" -o "${j%.json}.srs"; done
+          for d in rules/*.domain.txt; do ./mihomo convert-ruleset domain text "$d" "${d%.domain.txt}.mrs"; done
+          rm -rf sing-box-* mihomo
+      - name: 有变化才提交
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rules
+          git diff --cached --quiet || git commit -m "rules: auto update $(date -u +%F)"
+          git push

@@ -1,0 +1,17 @@
+name: xai-grok
+description: xAI / Grok / Grok Bot / X(Twitter)
+# v2fly/domain-list-community 的 data/ 文件名，每天自动拉最新
+upstream:
+  - xai       # grok.com, x.ai, grokipedia.com ...
+  - twitter   # x.com, twitter.com, twimg.com, t.co ...
+  - cursor    # Grok Bot 跑在 Cursor 上
+# 上游没有、自己补的
+extra:
+  suffix:
+    - grokusercontent.com   # Grok 生成的图片/文件/MCP 沙盒（grok.com 前端实测）
+    - cursorvm.com          # Grok Bot 云电脑（Cursor 官方网络白名单）
+    - x.ai
+    - grok.com
+    - x.com
+  full: []
+  keyword: []

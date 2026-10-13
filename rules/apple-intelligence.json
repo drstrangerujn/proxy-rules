@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "apple-relay.apple.com",
+        "apple-relay.cloudflare.com",
+        "apple-relay.fastly-edge.com",
+        "apple-relay.mask.apple-dns.net",
+        "cp4.cloudflare.com",
+        "gateway.icloud.com",
+        "gspe1-ssl.ls.apple.com",
+        "guzzoni.apple.com",
+        "mask-h2.icloud.com",
+        "mask.icloud.com",
+        "smoot.apple.com"
+      ],
+      "domain": [
+        "mask-api.fe.apple-dns.net",
+        "mask-api.icloud.com",
+        "mask-t.apple-dns.net",
+        "mask.apple-dns.net"
+      ],
+      "domain_keyword": [
+        "siri"
+      ]
+    }
+  ]
+}
