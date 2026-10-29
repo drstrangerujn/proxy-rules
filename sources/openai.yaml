@@ -1,0 +1,23 @@
+name: openai
+description: OpenAI / ChatGPT / Sora（含生图、登录风控、语音）
+# v2fly/domain-list-community 的 data/ 文件名，每天自动拉最新
+upstream:
+  - openai
+# 上游没有、自己补的
+extra:
+  suffix:
+    - ai.com                  # 跳转到 chatgpt.com
+    - arkoselabs.com          # 登录/注册人机验证
+    - statsigapi.net          # 功能开关，失败时页面部分功能不出
+    - featuregates.org
+    - featureassets.org
+    - prodregistryv2.org
+    - intercom.io             # 帮助中心
+    - intercomcdn.com
+    - workos.com              # 企业 SSO 登录
+  full:
+    - challenges.cloudflare.com              # Cloudflare 人机验证，要跟主站同出口
+    - oaidalleapiprodscus.blob.core.windows.net  # 生图结果
+    - cdn.auth0.com
+  keyword:
+    - chatgpt-async-webps-prod  # 上游是 regexp（webpubsub.azure.com 长连接），转成关键词

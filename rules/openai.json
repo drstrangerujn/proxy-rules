@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "ai.com",
+        "arkoselabs.com",
+        "chat.com",
+        "chatgpt.com",
+        "chatgpt.livekit.cloud",
+        "chatgpt.site",
+        "crixet.com",
+        "featureassets.org",
+        "featuregates.org",
+        "host.livekit.cloud",
+        "intercom.io",
+        "intercomcdn.com",
+        "oaistatic.com",
+        "oaistatsig.com",
+        "oaiusercontent.com",
+        "openai.com",
+        "openai.com.cdn.cloudflare.net",
+        "openai.org",
+        "prodregistryv2.org",
+        "sora.com",
+        "statsigapi.net",
+        "turn.livekit.cloud",
+        "workos.com"
+      ],
+      "domain": [
+        "browser-intake-datadoghq.com",
+        "cdn.auth0.com",
+        "challenges.cloudflare.com",
+        "o33249.ingest.sentry.io",
+        "o33249.ingest.us.sentry.io",
+        "oaidalleapiprodscus.blob.core.windows.net",
+        "openai.qualtrics.com",
+        "openaiapi-site.azureedge.net",
+        "openaiassets.blob.core.windows.net",
+        "openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net",
+        "openaicom.imgix.net",
+        "openaicomproductionae4b.blob.core.windows.net",
+        "production-openaicom-storage.azureedge.net"
+      ],
+      "domain_keyword": [
+        "chatgpt-async-webps-prod"
+      ]
+    }
+  ]
+}

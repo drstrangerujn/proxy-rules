@@ -8,11 +8,14 @@
 |---|---|---|
 | `xai-grok` | xAI / Grok / Grok Bot / X（推特） | 见文件头 |
 | `apple-intelligence` | Apple Intelligence / Siri（必须走美国节点） | 见文件头 |
+| `openai` | OpenAI / ChatGPT / Sora，含生图、登录风控、语音 | 见文件头 |
 
 `xai-grok` 比上游多的：
 
 - `grokusercontent.com`：Grok 生成的图片、文件和 MCP 沙盒，上游 `xai` 没收
 - `cursorvm.com`：Grok Bot 的云电脑。Grok Bot 跑在 Cursor 上，所以 Cursor 的域名也要一起走代理（来源：[Cursor 网络白名单](https://cursor.com/docs/enterprise/network-configuration)）
+
+`openai` 比上游多的：登录和人机验证用的第三方域名（Arkose、Cloudflare challenges、Auth0、WorkOS）、功能开关（Statsig）、帮助中心（Intercom）、`ai.com`，以及生图结果所在的 `oaidalleapiprodscus.blob.core.windows.net`。这些不跟主站走同一个出口，常见现象是登录卡验证、生图失败。
 
 ## 订阅地址
 
