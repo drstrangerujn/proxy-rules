@@ -1,0 +1,7 @@
+name: claude
+description: Anthropic / Claude（claude.ai、API、Claude Code）
+# v2fly/domain-list-community 的 data/ 文件名，每天自动拉最新
+upstream:
+  - anthropic
+extra:
+  suffix: []

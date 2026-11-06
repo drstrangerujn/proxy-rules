@@ -1,0 +1,5 @@
+name: ai
+description: 常见 AI 服务合集（ChatGPT、Gemini、Copilot、Perplexity 等），跟 ddgksf2013 的 Ai 规则
+# 原先在 Surge 里靠 Script-Hub 现场转换这份 yaml；放这里转好，设备上不用装 Script-Hub
+classical_upstream:
+  - https://ddgksf2013.top/filter/Ai.yaml

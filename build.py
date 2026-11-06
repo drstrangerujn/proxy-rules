@@ -3,6 +3,7 @@
 
 sources/*.yaml  = v2fly/domain-list-community 上游 + 自己补的域名
 sources/*.list  = 手写的 classical 规则，原样转换格式
+sources/*.yaml 里也可以写 classical_upstream: [URL]，直接跟别人维护的 Surge/Clash classical 规则（只取域名类规则）
 """
 import json
 import pathlib
@@ -47,8 +48,27 @@ def fetch_v2fly(name, seen=None):
     return out
 
 
+KIND = {"DOMAIN-SUFFIX": "suffix", "DOMAIN": "full", "DOMAIN-KEYWORD": "keyword"}
+
+
+def fetch_classical(url):
+    """拉别人维护的 classical 规则（Surge .list 或 Clash yaml payload），只留 DOMAIN/DOMAIN-SUFFIX/DOMAIN-KEYWORD。"""
+    req = urllib.request.Request(url, headers={"User-Agent": "Surge iOS/3000"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        text = r.read().decode()
+    out = []
+    for line in text.splitlines():
+        line = line.split("#", 1)[0].strip().lstrip("-").strip().strip("'\"")
+        t, _, v = line.partition(",")
+        if t in KIND:
+            out.append((KIND[t], v.split(",")[0].strip()))
+    if not out:
+        raise ValueError(f"{url} 里没有域名规则")
+    return out
+
+
 def parse_classical(path):
-    kind = {"DOMAIN-SUFFIX": "suffix", "DOMAIN": "full", "DOMAIN-KEYWORD": "keyword"}
+    kind = KIND
     out = []
     for line in path.read_text().splitlines():
         line = line.split("#", 1)[0].strip()
@@ -101,8 +121,14 @@ def main():
     for p in sorted(SRC.glob("*.yaml")):
         cfg = yaml.safe_load(p.read_text())
         entries = []
-        for up in cfg.get("upstream", []):
-            entries += fetch_v2fly(up)
+        try:
+            for up in cfg.get("upstream", []) or []:
+                entries += fetch_v2fly(up)
+            for url in cfg.get("classical_upstream", []) or []:
+                entries += fetch_classical(url)
+        except Exception as e:  # 上游一时拉不到就保留上次生成的文件，别让整个构建失败
+            print(f"{cfg['name']}: 上游拉取失败，保留旧文件（{e}）", file=sys.stderr)
+            continue
         for t in ("suffix", "full", "keyword"):
             entries += [(t, v) for v in (cfg.get("extra", {}) or {}).get(t, []) or []]
         write(cfg["name"], cfg.get("description", ""), normalize(entries))

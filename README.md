@@ -9,6 +9,8 @@
 | `xai-grok` | xAI / Grok / Grok Bot / X（推特） | 见文件头 |
 | `apple-intelligence` | Apple Intelligence / Siri（必须走美国节点） | 见文件头 |
 | `openai` | OpenAI / ChatGPT / Sora，含生图、登录风控、语音 | 见文件头 |
+| `claude` | Anthropic / Claude，跟 v2fly `anthropic` | 见文件头 |
+| `ai` | 常见 AI 服务合集，跟 [ddgksf2013 的 Ai 规则](https://ddgksf2013.top/filter/Ai.yaml)（以前靠 Script-Hub 现场转换） | 见文件头 |
 
 `xai-grok` 比上游多的：
 
@@ -72,6 +74,7 @@ xAI 不对中国大陆提供服务，`xai-grok` 建议走美国、日本、德�
 改 `sources/` 下的文件，push 后 Actions 会重新生成 `rules/`：
 
 - `sources/*.yaml`：`upstream` 填 v2fly 的文件名，`extra` 填自己补的域名
+- `sources/*.yaml` 也可以写 `classical_upstream`：别人维护的 Surge/Clash classical 规则地址，每天跟一次；拉不到就保留上次的文件
 - `sources/*.list`：手写的 classical 规则（DOMAIN / DOMAIN-SUFFIX / DOMAIN-KEYWORD）
 
 本地预览：`pip install pyyaml && python3 build.py`
