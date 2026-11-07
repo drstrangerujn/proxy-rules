@@ -6,6 +6,7 @@
 +.cursorapi.com
 +.cursorvm.com
 +.grok.com
++.grokbot.com
 +.grokipedia.com
 +.grokusercontent.com
 +.periscope.tv

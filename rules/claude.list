@@ -1,5 +1,5 @@
 # claude: Anthropic / Claude（claude.ai、API、Claude Code）
-# 自动生成，勿手改。源：sources/ ；共 19 条
+# 自动生成，勿手改。源：sources/ ；共 21 条
 DOMAIN-SUFFIX,ant.dev
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,anthropic.team
@@ -18,4 +18,6 @@ DOMAIN-SUFFIX,claudemcpcontent.com
 DOMAIN-SUFFIX,claudepages.dev
 DOMAIN-SUFFIX,claudestudio.com
 DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN,o1158394.ingest.us.sentry.io
 DOMAIN,servd-anthropic-website.b-cdn.net
