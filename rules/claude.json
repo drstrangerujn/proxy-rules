@@ -23,6 +23,7 @@
         "claudeusercontent.com"
       ],
       "domain": [
+        "browser-intake-us5-datadoghq.com",
         "http-intake.logs.us5.datadoghq.com",
         "o1158394.ingest.us.sentry.io",
         "servd-anthropic-website.b-cdn.net"

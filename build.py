@@ -134,7 +134,13 @@ def main():
         write(cfg["name"], cfg.get("description", ""), normalize(entries))
     for p in sorted(SRC.glob("*.list")):
         first = p.read_text().splitlines()[0].lstrip("# ").strip()
-        write(p.stem, first, normalize(parse_classical(p)))
+        entries = normalize(parse_classical(p))
+        write(p.stem, first, entries)
+        if p.stem == "apple-intelligence":
+            # Surge can limit Siri wildcard matching to Apple's own domain.
+            regular = (OUT / "apple-intelligence.list").read_text()
+            scoped = regular.replace("DOMAIN-KEYWORD,siri\n", "DOMAIN-WILDCARD,*siri*.apple.com\n")
+            (OUT / "apple-intelligence-scoped.list").write_text(scoped)
 
 
 if __name__ == "__main__":

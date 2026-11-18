@@ -5,3 +5,6 @@ upstream:
   - anthropic
 extra:
   suffix: []
+  # Optional Claude Code error reporting, per https://code.claude.com/docs/en/network-config
+  full:
+    - browser-intake-us5-datadoghq.com

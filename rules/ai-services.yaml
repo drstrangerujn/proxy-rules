@@ -1,0 +1,36 @@
+# ai-services: 其他 AI 专用域名与租户端点
+# 自动生成，勿手改。源：sources/ ；共 33 条
+payload:
+  - DOMAIN-SUFFIX,aistudio.google.com
+  - DOMAIN-SUFFIX,deepmind.com
+  - DOMAIN-SUFFIX,deepmind.google
+  - DOMAIN-SUFFIX,dify.ai
+  - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,generativeai.google
+  - DOMAIN-SUFFIX,grazie.ai
+  - DOMAIN-SUFFIX,groq.com
+  - DOMAIN-SUFFIX,hf.co
+  - DOMAIN-SUFFIX,hf.space
+  - DOMAIN-SUFFIX,huggingface.co
+  - DOMAIN-SUFFIX,llama.com
+  - DOMAIN-SUFFIX,llamameta.net
+  - DOMAIN-SUFFIX,manus.im
+  - DOMAIN-SUFFIX,manuscdn.com
+  - DOMAIN-SUFFIX,meta.ai
+  - DOMAIN-SUFFIX,midjourney.com
+  - DOMAIN-SUFFIX,mistral.ai
+  - DOMAIN-SUFFIX,notebooklm.google
+  - DOMAIN-SUFFIX,notebooklm.google.com
+  - DOMAIN-SUFFIX,perplexity.ai
+  - DOMAIN-SUFFIX,perplexity.com
+  - DOMAIN-SUFFIX,poe.com
+  - DOMAIN-SUFFIX,poecdn.net
+  - DOMAIN-SUFFIX,pplx.ai
+  - DOMAIN,ai.google.dev
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com
+  - DOMAIN,api.githubcopilot.com
+  - DOMAIN,copilot.microsoft.com
+  - DOMAIN,generativelanguage.googleapis.com
+  - DOMAIN,makersuite.google.com
+  - DOMAIN,pplx-res.cloudinary.com
+  - DOMAIN,sydney.bing.com
